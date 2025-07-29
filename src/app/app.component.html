@@ -1,31 +1,9 @@
-<h2>{{name}}</h2>
+<nav class="navbar">
+  <ul class="nav-list">
+    <li><a routerLink="/booklist" routerLinkActive="active" aria-current="page">Book List</a></li>
+    <li><a routerLink="/bookdetails" routerLinkActive="active" aria-current="page">Book Details</a></li>
+    <li><a routerLink="/addbook" routerLinkActive="active" aria-current="page">Add Book</a></li>
+  </ul>
+</nav>
 
-<ul>
-  <li *ngFor="let n of name">
-    {{n}}
-  </li>
-</ul>
-
-<ul>
-  <li *ngFor="let n of names">
-    {{n}}
-  </li>
-</ul>
-
-<ul>
-  <li *ngFor="let n of turple">
-    {{n}}
-  </li>
-</ul>
-
-<ul>
-  <li *ngFor="let n of indexsign | keyvalue">
-    {{n.key}}  age {{n.value}}
-  </li>
-</ul> 
-
-<ul>
-  <li *ngFor="let n of directionkeys">
- {{n}}
-  </li>
-</ul> 
+<router-outlet></router-outlet>

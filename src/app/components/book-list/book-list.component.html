@@ -1,1 +1,13 @@
-<p>book-list works!</p>
+<div class="book-list-container">
+    <h1>📚 Book List</h1>
+    <input [(ngModel)]="searchbook" placeholder="search book">
+    <ul class="book-list">
+      <li *ngFor="let books of  getseacrchbook()" class="book-item">
+        <h2>{{ books.title }}</h2>
+        <p><strong>Author:</strong> {{ books.auther }}</p>
+        <p><strong>Genre:</strong> {{ books.genre }}</p>
+        <p class="description">{{ books.description }}</p>
+      </li>
+    </ul>
+  </div>
+  
