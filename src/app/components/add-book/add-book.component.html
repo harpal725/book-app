@@ -1,1 +1,11 @@
-<p>add-book works!</p>
+<form #bookform="ngForm" (ngSubmit)="submitbookform(bookform)">
+    <label for="title">Title</label>
+    <input id="title" type="text" placeholder="Title">
+    <label for="auther">Auther</label>
+    <input id="auther" type="text" placeholder="Auther">
+    <label for="genre">Genre</label>
+    <input id="genre" type="text" placeholder="Genre">
+    <label for="description">Description</label>
+    <input id="description" name="description" type="text" placeholder="Description">
+    <button type="submit"> Add</button>
+</form>
