@@ -3,6 +3,7 @@ import { BookServiceService } from '../../book-service.service';
 import { Book } from '../../models/Book';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import { error } from 'console';
 
 @Component({
   selector: 'app-book-list',
@@ -17,6 +18,10 @@ export class BookListComponent implements OnInit{
   constructor(private bookservice: BookServiceService){}
 
   ngOnInit(): void {
+    this.getbookList()
+  }
+
+  getbookList(){
     this.bookservice.getbooks().subscribe(data => {this.book=data;
       console.log(this.book)
     })
@@ -25,6 +30,14 @@ export class BookListComponent implements OnInit{
   searchbook= '';
   getseacrchbook() {
     return this.book.filter(b => b.title.toLocaleLowerCase().includes(this.searchbook.toLocaleLowerCase()))
+  }
+
+
+  deletbook(id: number){
+    this.bookservice.deleteBookById(id).subscribe(() =>{
+        console.log(`book with the ${id} has been delete`);
+        this.getbookList();
+    });
   }
 
 }

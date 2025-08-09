@@ -7,6 +7,8 @@
         <p><strong>Author:</strong> {{ books.auther }}</p>
         <p><strong>Genre:</strong> {{ books.genre }}</p>
         <p class="description">{{ books.description }}</p>
+        <button (click)="deletbook(books.id)" >Delete</button>
+        <button>View Details</button>
       </li>
     </ul>
   </div>

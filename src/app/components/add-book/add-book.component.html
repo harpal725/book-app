@@ -1,11 +1,18 @@
-<form #bookform="ngForm" (ngSubmit)="submitbookform(bookform)">
-    <label for="title">Title</label>
-    <input id="title" type="text" placeholder="Title">
-    <label for="auther">Auther</label>
-    <input id="auther" type="text" placeholder="Auther">
-    <label for="genre">Genre</label>
-    <input id="genre" type="text" placeholder="Genre">
-    <label for="description">Description</label>
-    <input id="description" name="description" type="text" placeholder="Description">
-    <button type="submit"> Add</button>
-</form>
+<div class="form-container">
+    <form #bookform="ngForm" (ngSubmit)="submitbookform()">
+      <label>Title</label>
+      <input name="title" type="text" [(ngModel)]="book.title" placeholder="Title">
+  
+      <label>Auther</label>
+      <input name="auther" type="text" [(ngModel)]="book.auther" placeholder="Auther">
+  
+      <label>Genre</label>
+      <input name="genre" type="text" [(ngModel)]="book.genre" placeholder="Genre">
+  
+      <label>Description</label>
+      <input name="description" [(ngModel)]="book.description" type="text" placeholder="Description">
+  
+      <button type="submit">Add</button>
+    </form>
+  </div>
+  

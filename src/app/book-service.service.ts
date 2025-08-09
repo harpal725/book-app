@@ -10,7 +10,9 @@ export class BookServiceService {
 
   private GetBookApi='https://localhost:7136/api/BookStores';
 
-  private PutBookApi='https://localhost:7136/api/BookStores'
+  private PostBookApi='https://localhost:7136/api/BookStores'
+
+  private DeletbookApi ='https://localhost:7136/api/BookStores'
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +20,12 @@ export class BookServiceService {
     return this.http.get<Book[]>(this.GetBookApi);
   }
 
+  creatBook(book: Book): Observable<Book>{
+    return this.http.post<Book>(this.PostBookApi, book)
+  }
+
+  deleteBookById(id:number):  Observable<any>{
+    return this.http.delete(`${this.DeletbookApi}/${id}`)
+  }
   
 }
