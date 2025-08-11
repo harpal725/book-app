@@ -7,28 +7,25 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-book',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './add-book.component.html',
-  styleUrl: './add-book.component.css'
+  styleUrl: './add-book.component.css',
 })
 export class AddBookComponent {
+  book: Book = {
+    title: '',
+    auther: '',
+    genre: '',
+    description: '',
+    id: 0,
+  };
 
-   book: Book ={
-     title: '',
-     auther: '',
-     genre: '',
-     description: '',
-     id: 0
-   };
+  constructor(private bookservice: BookServiceService) {}
 
-   constructor(private bookservice: BookServiceService){}
-  
-  submitbookform(){
-    this.bookservice.creatBook(this.book).subscribe(response =>{
-      console.log("book record submited")
-    })
-
-    
+  submitbookform() {
+    this.bookservice.creatBook(this.book).subscribe((response) => {
+      console.log('book record submited');
+      this.book = { title: '', auther: '', genre: '', description: '', id: 0 };
+    });
   }
-
 }

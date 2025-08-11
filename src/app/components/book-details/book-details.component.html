@@ -1,1 +1,19 @@
-<p>book-details works!</p>
+
+<div class="form-container" *ngIf="selectedBook">
+  <h3>Book Details</h3>
+  <form>
+    <label>Title</label>
+    <input type="text" [(ngModel)]="selectedBook.title" name="title" readonly>
+
+    <label>Author</label>
+    <input type="text" [(ngModel)]="selectedBook.auther" name="auther" readonly>
+
+    <label>Genre</label>
+    <input type="text" [(ngModel)]="selectedBook.genre" name="genre" readonly>
+
+    <label>Description</label>
+    <textarea [(ngModel)]="selectedBook.description" name="description" readonly></textarea>
+    
+    <button (click)="update(selectedBook.id)">update</button>
+  </form>
+</div>

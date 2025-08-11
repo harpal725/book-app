@@ -8,24 +8,29 @@ import { Book } from './models/Book';
 })
 export class BookServiceService {
 
-  private GetBookApi='https://localhost:7136/api/BookStores';
+  private GetBookApi = 'http://localhost:5000/api/BookStores';
 
-  private PostBookApi='https://localhost:7136/api/BookStores'
+  private PostBookApi = 'http://localhost:5000/api/BookStores'
 
-  private DeletbookApi ='https://localhost:7136/api/BookStores'
+  private DeletbookApi = 'http://localhost:5000/api/BookStores'
+
 
   constructor(private http: HttpClient) { }
 
-  getbooks(): Observable<Book[]>{
+  getbooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.GetBookApi);
   }
 
-  creatBook(book: Book): Observable<Book>{
+  creatBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.PostBookApi, book)
   }
 
-  deleteBookById(id:number):  Observable<any>{
+  deleteBookById(id: number): Observable<any> {
     return this.http.delete(`${this.DeletbookApi}/${id}`)
   }
-  
+
+    getbooksbyid(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.GetBookApi}/${id}`);
+  }
+
 }
